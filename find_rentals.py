@@ -35,7 +35,7 @@ def sort_rentals(distance):
     df2['dis'] = df2.apply(lambda x: sum_distance(x['lat'], x['long']), axis=1)
     df2 = df2.sort_values('dis')
     df2 = df2[df2['dis'] > 0]
-    df2 = df2[(df2['price'] > 900) & (df2['price'] < 1600)]
+    df2 = df2[(df2['price'] >= 900) & (df2['price'] <= 1600)]
 
     df2.to_csv('result.csv')
     print("Results have been written in result.csv!")
